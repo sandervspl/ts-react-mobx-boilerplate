@@ -1,30 +1,28 @@
-# ts-react-ssr-boilerplate
+# React boilerplate
 
 ## Getting Started
 ```
-$ git clone https://github.com/sandervspl/ts-react-ssr-boilerplate
+$ git clone https://github.com/sandervspl/ts-react-ssr-mobx.git
 ```
 
 ```
-$ cd ts-react-ssr-boilerplate && npm i
+$ cd ts-react-ssr-mobx && npm i
 ```
 
 ```
-$ npm dev
+$ npm run dev
 ```
 
 ## Features
 * [Universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) rendering
-* [React](https://github.com/facebook/react)
-* [Redux](https://github.com/rackt/redux)
-* [Redux Thunk](https://github.com/gaearon/redux-thunk) to handle async actions
-* [React Router](https://github.com/rackt/react-router)
+* [React 16.3](https://github.com/facebook/react)
+* [MobX](https://github.com/mobxjs/mobx)
+* [React Router 4](https://github.com/rackt/react-router)
 * [Express](http://expressjs.com)
-* [Babel](http://babeljs.io) for ES6 and ES7
-* [Webpack](http://webpack.github.io) for bundling
+* [Babel 7](http://babeljs.io) for the future of JavaScript
+* [Webpack 4](http://webpack.github.io) for bundling
 * [Webpack Dev Middleware](http://webpack.github.io/docs/webpack-dev-middleware.html)
 * [Webpack Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware)
-* [Redux Dev Tools](https://github.com/gaearon/redux-devtools) for next generation DX (developer experience).
 * [TSLint](https://palantir.github.io/tslint/) to maintain a consistent code style
 * [Styled-Components](https://github.com/styled-components/styled-components/) for CSS-in-JS
 * [TypeScript](https://github.com/Microsoft/TypeScript) for better documentation of the written code
@@ -40,12 +38,12 @@ $ npm dev
 **Automated for production with [npm-run-all](https://github.com/mysticatea/npm-run-all).**
 
 ## Deployment
-Make sure all modules are installed:  
+Make sure all modules are installed:
 ```
 $ npm i
 ```
 
-Create a build for production, this will add a `/dist` folder to the root with all bundles.  
+Create a build for production, this will add a `/dist` folder to the root with all bundles.
 ```
 $ npm run build
 ```
@@ -65,10 +63,7 @@ The components are separated in `Modules` and `Common`. Modules are bundled comp
 This boilerplate uses TypeScript for more consistent and better code maintainability. TypeScript is a typed superset of JavaScript, which means variables can be assigned with data types. TypeScript will decrease bugs and improve documentation of the code.
 
 ### Ducks
-This boilerplate uses the [Ducks](https://github.com/erikras/ducks-modular-redux) pattern for Redux, that means that the actionTypes, actions and reducers are bundled together in an isolated module.
-
-### Redux DevTools
-To use de Redux DevTools install the [Redux DevTools extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) from the chrome webstore.
+This boilerplate uses the MobX for its state management.
 
 ## Styling
 ### Local styles
@@ -89,21 +84,6 @@ Server-side Rendering is enabled by default. This can be disabled by changing `S
 
 ## Bash scripts
 For the best development experience, I recommend adding the following scripts to your `.bashrc` file.
-
-### Create new Duck module
-```bash
-newduck() {
-    D="src/app/ducks/modules/$1";
-    mkdir -p $D || return;
-    touch "$D/index.ts" "$D/types.ts";
-}
-```
-Usage:
-```
-$ newduck user
-```
-This will create a new folder in `app/ducks/modules` called User with an `index.ts` and `types.ts` file.
-Don't forget to add this new module to `ducks/index.ts`.
 
 ### Create new common component
 ```bash
