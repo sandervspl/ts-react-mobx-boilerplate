@@ -7,7 +7,7 @@ import { Test } from './modules';
 
 // @ts-ignore
 // Argument of type 'typeof App' is not assignable to parameter of type 'ComponentType<RouteComponentType<any>>'.
-@withRouter
+@withRouter // necessary for App to re-render on route change
 @observer
 class App extends React.Component<i.App, {}> {
   render() {
