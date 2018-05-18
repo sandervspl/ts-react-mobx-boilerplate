@@ -1,11 +1,11 @@
 {
-  "name": "ts-react-ssr-boilerplate",
-  "version": "2.0.1",
+  "name": "ts-react-ssr-mobx-boilerplate",
+  "version": "0.0.1",
   "description": "A starter boilerplate to create comprehensive React apps with TypeScript, MobX, Styled-Components and server-side rendering.",
   "author": "sandervispoel <contact@sandervispoel.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sandervspl/ts-react-ssr-boilerplate"
+    "url": "https://github.com/sandervspl/ts-react-ssr-mobx-boilerplate"
   },
   "license": "MIT",
   "scripts": {
