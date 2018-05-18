@@ -1,22 +1,21 @@
 import * as React from 'react';
-import store from 'app/store';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import { Provider } from 'mobx-react';
 import { ThemeProvider } from 'styled-components';
-import { theme, globalStyles } from 'app/styles';
+import { globalStyles, theme } from 'app/styles';
+import { storeDirectory, history } from 'app/stores';
 import App from './App';
+
 import 'app/static/favicon.ico';
 
 globalStyles();
 
-const Root: React.StatelessComponent = () => (
-  <Provider store={store}>
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <App/>
-      </ThemeProvider>
-    </BrowserRouter>
+export default () => (
+  <Provider {...storeDirectory}>
+    <ThemeProvider theme={theme}>
+      <Router history={history}>
+        <App />
+      </Router>
+    </ThemeProvider>
   </Provider>
 );
-
-export default Root;

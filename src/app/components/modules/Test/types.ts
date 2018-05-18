@@ -1,6 +1,5 @@
-import { TestState } from 'ducks/modules/test/types';
-import { Dispatcher } from 'ducks/types';
+import { TestStore } from 'stores/Test/types';
 
-export interface HomeProps extends TestState {
-  install: Dispatcher;
+export interface HomeProps {
+  testStore?: TestStore;
 }

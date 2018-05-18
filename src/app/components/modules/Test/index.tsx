@@ -1,28 +1,30 @@
+import { HomeProps } from './types';
 import * as React from 'react';
-import { connect } from 'react-redux';
-
-import { install } from 'ducks/modules/test';
-
 import { Button } from 'components/common';
 import { LogoIconWrapper, Section } from './styled';
 import { TestPassed } from './components';
+import { inject, observer } from 'mobx-react';
+import Stores from 'app/stores';
 
-import { HomeProps } from './types';
-import { ReduxState } from 'app/ducks';
+@inject(Stores.testStore)
+@observer
+class Test extends React.Component<HomeProps, {}> {
+  render() {
+    const { passed, install, isLoading } = this.props.testStore;
 
-const Test: React.StatelessComponent<HomeProps> = (props: HomeProps) => (
-  <Section>
-    <LogoIconWrapper/>
-    {props.test.passed ? (
-      <TestPassed/>
-    ) : (
-      <Button onClick={props.install}>{props.test.loading ? 'Installing ...' : 'Test installation'}</Button>
-    )}
-  </Section>
-);
+    return (
+      <Section>
+        <LogoIconWrapper/>
+        {passed ? (
+          <TestPassed/>
+        ) : (
+          <Button onClick={install}>
+            {isLoading ? 'Installing ...' : 'Test installation'}
+          </Button>
+        )}
+      </Section>
+    );
+  }
+}
 
-const mapStateToProps = (store: ReduxState) => ({
-  test: store.test,
-});
-
-export default connect(mapStateToProps, { install })(Test);
+export default Test;

@@ -1,4 +1,4 @@
-import { HTML } from 'config/index';
+import { HTML } from 'config';
 
 interface RenderOptions {
   html?: string;
