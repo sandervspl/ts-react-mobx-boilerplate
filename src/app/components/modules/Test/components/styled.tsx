@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled, { BaseStyled } from 'styled-components';
+import styled from 'styled-components';
 
 export const Message = styled.div`
   font-size: 18px;
@@ -12,5 +12,3 @@ export const Message = styled.div`
 export const Confetti = styled.img`
   width: 22px;
 `;
-
-// interface ConfettiProps extends React.ImgHTMLAttributes<any>, BaseStyled {}
