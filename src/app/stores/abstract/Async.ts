@@ -44,6 +44,7 @@ abstract class AsyncStore implements i.AsyncStore {
     this.loaded = false;
     this.error = true;
 
+    // tslint:disable-next-line no-console
     console.log(err);
   };
 
@@ -55,7 +56,7 @@ abstract class AsyncStore implements i.AsyncStore {
     }[env];
   }
 
-  protected get api(): i.ApiHelper {
+  public get api(): i.ApiHelper {
     return {
       get: ({ path, query, withAuth }: i.GenerateOptions) =>
         this.request(this.generateOptions({ method: 'GET', path, query, withAuth })),
@@ -70,7 +71,7 @@ abstract class AsyncStore implements i.AsyncStore {
     };
   }
 
-  protected request = async ({ path, options, handle401 }: i.RequestOptions): Promise<any> => {
+  private request = async ({ path, options, handle401 }: i.RequestOptions): Promise<any> => {
     return new Promise((resolve, reject) => {
       fetch(path, options)
         .then(response => {
@@ -100,7 +101,7 @@ abstract class AsyncStore implements i.AsyncStore {
     });
   };
 
-  protected generateOptions = (options: i.GenerateOptions): i.RequestOptions => {
+  private generateOptions = (options: i.GenerateOptions): i.RequestOptions => {
     const { method, path, withAuth = false, query, body } = options;
 
     return {
