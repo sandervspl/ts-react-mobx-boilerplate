@@ -1,23 +1,17 @@
 import * as i from './types';
-import { observable, computed, action } from 'mobx';
+import { observable, action } from 'mobx';
+import AsyncStore from '../abstract/Async';
 
-class TestStore implements i.TestStore {
-  @observable public passed = false;
-  @observable private loading = false;
-  @observable private error = false;
-
-  @computed
-  public get isLoading(): boolean {
-    return this.loading;
-  }
+class TestStore extends AsyncStore implements i.TestStore {
+  @observable passed = false;
 
   @action
   public install = (): Promise<void> => {
-    this.loading = true;
+    this.setLoading();
 
     return new Promise((resolve) => {
       setTimeout(() => {
-        this.loading = false;
+        this.setSuccess();
         this.passed = true;
         resolve();
       }, 2000);
