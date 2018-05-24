@@ -16,7 +16,7 @@ export interface Theme {
   font: Fonts;
 }
 
-interface BaseStyled {
+export interface BaseStyled {
   theme?: i.Theme;
   className?: string;
 }
