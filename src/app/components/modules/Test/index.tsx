@@ -1,4 +1,4 @@
-import { HomeProps } from './types';
+import * as i from 'app/interfaces';
 import * as React from 'react';
 import { Button } from 'components/common';
 import { LogoIconWrapper, Section } from './styled';
@@ -14,9 +14,9 @@ class Test extends React.Component<HomeProps, {}> {
 
     return (
       <Section>
-        <LogoIconWrapper/>
+        <LogoIconWrapper />
         {passed ? (
-          <TestPassed/>
+          <TestPassed />
         ) : (
           <Button onClick={install}>
             {isLoading ? 'Installing ...' : 'Test installation'}
@@ -25,6 +25,10 @@ class Test extends React.Component<HomeProps, {}> {
       </Section>
     );
   }
+}
+
+export interface HomeProps {
+  testStore?: i.TestStore;
 }
 
 export default Test;

@@ -1,4 +1,3 @@
-import * as i from './types';
 import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { observer } from 'mobx-react';
@@ -9,7 +8,7 @@ import { Test } from './modules';
 // Argument of type 'typeof App' is not assignable to parameter of type 'ComponentType<RouteComponentType<any>>'.
 @withRouter // necessary for App to re-render on route change
 @observer
-class App extends React.Component<i.App, {}> {
+class App extends React.Component<AppProps, {}> {
   render() {
     return (
       <main>
@@ -20,5 +19,7 @@ class App extends React.Component<i.App, {}> {
     );
   }
 }
+
+export interface AppProps {}
 
 export default App;

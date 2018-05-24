@@ -1,4 +1,4 @@
-import * as i from './types';
+import * as i from 'app/interfaces';
 import { observable, action } from 'mobx';
 import AsyncStore from '../abstract/Async';
 
