@@ -10,7 +10,7 @@ import Stores from 'app/stores';
 @observer
 class Test extends React.Component<HomeProps, {}> {
   render() {
-    const { passed, install, isLoading } = this.props.testStore;
+    const { passed, install, fetcher: { isLoading } } = this.props.testStore;
 
     return (
       <Section>

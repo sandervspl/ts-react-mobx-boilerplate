@@ -1,7 +1,7 @@
 import * as i from 'app/interfaces';
 
-export interface TestStore extends i.AsyncStore {
+export interface TestStore {
   passed: boolean;
-  isLoading: boolean;
+  fetcher: i.Fetcher;
   install: () => Promise<void>;
 }

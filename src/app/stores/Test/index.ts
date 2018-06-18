@@ -1,17 +1,18 @@
 import * as i from 'app/interfaces';
 import { observable, action } from 'mobx';
-import AsyncStore from '../abstract/Async';
+import * as c from 'app/services/composition';
 
-class TestStore extends AsyncStore implements i.TestStore {
+class TestStore implements i.TestStore {
   @observable passed = false;
+  public fetcher = new c.Fetcher();
 
   @action
   public install = (): Promise<void> => {
-    this.setLoading();
+    this.fetcher.setLoading();
 
     return new Promise((resolve) => {
       setTimeout(() => {
-        this.setSuccess();
+        this.fetcher.setSuccess();
         this.passed = true;
         resolve();
       }, 2000);

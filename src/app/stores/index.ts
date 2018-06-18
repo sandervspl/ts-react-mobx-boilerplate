@@ -4,7 +4,11 @@ import createBrowserHistory from 'history/createBrowserHistory';
 // import instance stores
 import testStore from './Test';
 
-const browserHistory = createBrowserHistory();
+let browserHistory;
+if (__CLIENT__) {
+  browserHistory = createBrowserHistory();
+}
+
 const routingStore = new RouterStore();
 
 // Store list for MobX inject
@@ -20,9 +24,14 @@ export const storeDirectory = {
   testStore,
 };
 
-export const history = syncHistoryWithStore(browserHistory, routingStore);
+let historySyncedStore = null;
+if (__CLIENT__) {
+  historySyncedStore = syncHistoryWithStore(browserHistory, routingStore);
+}
+
+export const history = historySyncedStore;
 
 // DEBUGGING
-if (!__PROD__) {
+if (__DEV__) {
   window.stores = storeDirectory;
 }

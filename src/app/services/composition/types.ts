@@ -1,7 +1,11 @@
-export interface AsyncStore {
+export interface Fetcher extends ApiHelper {
   isLoading: boolean;
   hasLoaded: boolean;
   hasFailed: boolean;
+  setLoading: () => void;
+  setSuccess: () => void;
+  setFailed: (err: any) => void;
+  apiUri: string;
 }
 
 export interface RequestOptions {
