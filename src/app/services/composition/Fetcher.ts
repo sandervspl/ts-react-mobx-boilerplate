@@ -2,6 +2,7 @@ import * as i from 'app/types';
 import { action, computed, observable } from 'mobx';
 import * as qs from 'qs';
 import * as s from 'app/services';
+import apiConfig from 'config/api';
 
 export class Fetcher implements i.Fetcher {
   @observable private loading: boolean = false;
@@ -52,11 +53,10 @@ export class Fetcher implements i.Fetcher {
   public get apiUri(): string {
     const env = process.env.NODE_ENV || 'development';
     return {
-      production: 'http://api.SOME_DOMAIN.com/api/v1/',
-      development: 'http://localhost:8080/api/v1/',
+      production: apiConfig.production,
+      development: apiConfig.development,
     }[env];
   }
-
 
   get = ({ path, query, withAuth }: i.GenerateOptions) =>
     this.request(this.generateOptions({ method: 'GET', path, query, withAuth }))
