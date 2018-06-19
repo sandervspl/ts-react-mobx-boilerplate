@@ -1,4 +1,4 @@
-import * as i from 'app/interfaces';
+import * as i from 'app/types';
 
 export interface Colors {
   black: string;

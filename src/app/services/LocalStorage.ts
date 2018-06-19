@@ -1,4 +1,4 @@
-import * as i from 'app/interfaces';
+import * as i from 'app/types';
 
 class jwToken implements i.JWTokenService {
   get = (): string | null => {

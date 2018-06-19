@@ -1,4 +1,4 @@
-import * as i from 'app/interfaces';
+import * as i from 'app/types';
 import * as styledComponents from '../../../node_modules/styled-components';
 
 const {

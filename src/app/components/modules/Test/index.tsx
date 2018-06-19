@@ -1,4 +1,4 @@
-import * as i from 'app/interfaces';
+import * as i from 'app/types';
 import * as React from 'react';
 import { Button } from 'components/common';
 import { LogoIconWrapper, Section } from './styled';

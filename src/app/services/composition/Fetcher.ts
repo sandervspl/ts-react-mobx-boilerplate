@@ -1,4 +1,4 @@
-import * as i from 'app/interfaces';
+import * as i from 'app/types';
 import { action, computed, observable } from 'mobx';
 import * as qs from 'qs';
 import * as s from 'app/services';
