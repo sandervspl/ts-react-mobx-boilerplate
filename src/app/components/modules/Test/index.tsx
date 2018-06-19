@@ -1,8 +1,7 @@
 import * as i from 'app/types';
 import * as React from 'react';
 import { Button } from 'components/common';
-import { LogoIconWrapper, Section } from './styled';
-import { TestPassed } from './components';
+import { LogoIconWrapper, Section, TestPassed } from './components';
 import { inject, observer } from 'mobx-react';
 import Stores from 'app/stores';
 
