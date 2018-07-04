@@ -1,9 +1,8 @@
 import * as i from 'app/types';
 import * as React from 'react';
 import styled from 'styled-components';
-import { StyledComponent } from 'app/services';
 
-const Button = styled(StyledComponent<ButtonProps>('button'))`
+const Button = styled.button<ButtonProps>`
     background: ${props => props.theme.color.primary};
     padding: 10px 20px;
     border: none;
