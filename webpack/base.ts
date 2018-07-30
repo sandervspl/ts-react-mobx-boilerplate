@@ -83,12 +83,6 @@ const baseConfig: any = {
         ],
       },
       {
-        test: /\.json$/,
-        loader: 'file-loader',
-        query: { name: '[name].json' },
-        type: 'javascript/auto',
-      },
-      {
         exclude: [
           /\.js$/,
           /\.tsx?$/,

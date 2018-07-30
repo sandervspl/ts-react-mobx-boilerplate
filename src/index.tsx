@@ -18,7 +18,7 @@ const render = Component => {
       <AppContainer>
         <Component />
       </AppContainer>,
-      app,
+      app
     );
   } else {
     ReactDOM.hydrate(<Component />, app);
