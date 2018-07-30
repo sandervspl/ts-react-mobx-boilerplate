@@ -1,3 +1,7 @@
+if (!global._babelPolyfill) {
+  require('@babel/polyfill');
+}
+
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
@@ -5,9 +9,6 @@ import { SSR } from 'config/index';
 import Root from './app/components/Root';
 import './manifest.json';
 
-if (!global._babelPolyfill) {
-  require('@babel/polyfill');
-}
 
 const app = document.getElementById('app');
 
