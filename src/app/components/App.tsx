@@ -8,7 +8,7 @@ const App: React.StatelessComponent<AppProps> = () => {
   return (
     <main>
       <Switch>
-        <Route exact path="/" component={Test}/>
+        <Route exact path="/" component={Test} />
       </Switch>
     </main>
   );

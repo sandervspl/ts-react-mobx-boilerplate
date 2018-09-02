@@ -17,6 +17,15 @@ const devConfig: any = merge({
   output: {
     publicPath: path.resolve(__dirname, '..', '/dist/'),
   },
+  devServer: {
+    publicPath: '/',
+    historyApiFallback: true,
+    hot: true,
+    noInfo: true,
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    stats: { colors: true },
+    port: 3000,
+  },
   plugins: [
     new CheckerPlugin(),
     new webpack.HotModuleReplacementPlugin(),

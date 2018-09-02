@@ -4,7 +4,6 @@ import * as path from 'path';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import globals from '../src/config/globals';
 import { merge } from './base';
-import { SSR } from '../src/config';
 
 const prodConfig: any = merge({
   name: 'client',
@@ -13,8 +12,7 @@ const prodConfig: any = merge({
   },
   plugins: [
     new webpack.DefinePlugin(globals('client')),
-    // only include html file if server-side render is disabled
-    SSR ? () => {} : new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       inject: true,
       template: path.resolve(__dirname, '..', 'src/index.html'),
       minify: {

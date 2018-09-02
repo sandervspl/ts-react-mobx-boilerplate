@@ -1,3 +1,4 @@
+// Add polyfills before anything else
 if (!global._babelPolyfill) {
   require('@babel/polyfill');
 }
@@ -5,24 +6,18 @@ if (!global._babelPolyfill) {
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import { SSR } from 'config/index';
 import Root from './app/components/Root';
 import './manifest.json';
-
 
 const app = document.getElementById('app');
 
 const render = Component => {
-  if (__DEV__ || !SSR) {
-    ReactDOM.render(
-      <AppContainer>
-        <Component />
-      </AppContainer>,
-      app
-    );
-  } else {
-    ReactDOM.hydrate(<Component />, app);
-  }
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    app
+  );
 };
 
 render(Root);
