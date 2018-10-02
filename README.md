@@ -2,11 +2,11 @@
 
 ## Getting Started
 ```
-$ git clone https://github.com/sandervspl/ts-react-ssr-mobx.git
+$ git clone https://github.com/sandervspl/ts-react-mobx.git
 ```
 
 ```
-$ cd ts-react-ssr-mobx && npm i
+$ cd ts-react-mobx && npm i
 ```
 
 ```
@@ -29,10 +29,8 @@ $ npm run dev
 * Refer to `package.json` for more details
 
 ## NPM Scripts
-* Start develop server: `$ npm dev`
-* Build client: `$ npm run build:client`
-* Build server: `$ npm run build:server`
-* Start server: `$ npm run start`
+* Start develop server: `$ npm run dev`
+* Build client: `$ npm run build`
 * Remove build folder: `$ npm run clean`
 
 **Automated for production with [npm-run-all](https://github.com/mysticatea/npm-run-all).**
@@ -47,13 +45,6 @@ Create a build for production, this will add a `/dist` folder to the root with a
 ```
 $ npm run build
 ```
-
-Run the server file to start server:
-```
-$ npm run start
-```
-
-For production I recommend to use [PM2](http://pm2.keymetrics.io/) to run the server with advanced process management.
 
 ## Development Workflow
 ### Components
