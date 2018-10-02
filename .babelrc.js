@@ -6,12 +6,7 @@ module.exports = {
   ],
   plugins: [
     'lodash',
-    [
-      'babel-plugin-styled-components',
-      {
-        ssr: true,
-      },
-    ],
+    'babel-plugin-styled-components',
     'react-hot-loader/babel',
     'react-loadable/babel',
   ],

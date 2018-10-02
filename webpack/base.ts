@@ -1,5 +1,6 @@
 import * as path from 'path';
 import * as webpackMerge from 'webpack-merge';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const srcPath = (p: string) => path.resolve(__dirname, '..', 'src/', p);
 
@@ -7,9 +8,8 @@ const baseConfig: any = {
   mode: 'production',
   devtool: 'cheap-source-map',
   output: {
-    path: path.resolve(__dirname, '..', 'dist'),
+    path: path.join(__dirname, '..', 'dist'),
     publicPath: '/',
-    filename: '[name].js',
   },
   optimization: {
     splitChunks: {
@@ -32,20 +32,10 @@ const baseConfig: any = {
     rules: [
       {
         test: /\.tsx?$/,
-        exclude: /node_modules/,
         use: [{
-          loader: 'babel-loader',
+          loader: 'ts-loader',
           options: {
-            babelrc: true,
-            plugins: ['react-hot-loader/babel'],
-          },
-        }, {
-          loader: 'awesome-typescript-loader',
-          options: {
-            compilerOptions: {
-              module: 'commonjs',
-              target: 'es2015',
-            },
+            transpileOnly: true,
           },
         }],
       },
@@ -115,6 +105,14 @@ const baseConfig: any = {
       'styled-components': srcPath('app/services/styled-components.ts'),
     },
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'React Typescript Boilerplate',
+      filename: 'index.html',
+      inject: true,
+      template: path.resolve(__dirname, '..', 'src/index.html'),
+    }),
+  ],
 };
 
 export default baseConfig;

@@ -1,8 +1,8 @@
 import * as webpack from 'webpack';
 import * as path from 'path';
-import { CheckerPlugin } from 'awesome-typescript-loader';
-import globals from '../src/config/globals';
+import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { merge } from './base';
+import globals from '../src/config/globals';
 
 const devConfig: any = merge({
   name: 'client',
@@ -11,14 +11,12 @@ const devConfig: any = merge({
   entry: {
     app: [
       'webpack-hot-middleware/client?reload=true&noInfo=true',
-      path.resolve(__dirname, '..', 'src/index.tsx'),
+      path.join(__dirname, '..', 'src/index.tsx'),
     ],
-  },
-  output: {
-    publicPath: path.resolve(__dirname, '..', '/dist/'),
   },
   devServer: {
     publicPath: '/',
+    compress: true,
     historyApiFallback: true,
     hot: true,
     noInfo: true,
@@ -27,7 +25,7 @@ const devConfig: any = merge({
     port: 3000,
   },
   plugins: [
-    new CheckerPlugin(),
+    new ForkTsCheckerWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin(globals('client')),
   ],

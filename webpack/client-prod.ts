@@ -1,19 +1,22 @@
 import * as webpack from 'webpack';
 import * as path from 'path';
-// import BundleAnalyzerPlugin from 'webpack-bundle-analyzer'.BundleAnalyzerPlugin;
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+// import BundleAnalyzerPlugin from 'webpack-bundle-analyzer'.BundleAnalyzerPlugin;
 import globals from '../src/config/globals';
 import { merge } from './base';
 
 const prodConfig: any = merge({
   name: 'client',
+  mode: 'production',
   entry: {
-    app: path.resolve(__dirname, '..', 'src/index.tsx'),
+    app: path.join(__dirname, '..', 'src/index.tsx'),
   },
   plugins: [
     new webpack.DefinePlugin(globals('client')),
     new HtmlWebpackPlugin({
-      inject: true,
+      title: 'React Typescript Boilerplate',
+      filename: 'index.html',
+      inject: false,
       template: path.resolve(__dirname, '..', 'src/index.html'),
       minify: {
         removeComments: true,

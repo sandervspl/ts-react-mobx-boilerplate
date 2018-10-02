@@ -18,7 +18,7 @@ class Test extends React.Component<HomeProps, {}> {
           <TestPassed />
         ) : (
           <Button onClick={install}>
-            {isLoading ? 'Installing ...' : 'Test installation'}
+            {isLoading ? 'Installing...' : 'Test installation'}
           </Button>
         )}
       </Section>
