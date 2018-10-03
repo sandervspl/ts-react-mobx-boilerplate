@@ -5,8 +5,6 @@ import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 const srcPath = (p: string) => path.resolve(__dirname, '..', 'src/', p);
 
 const baseConfig: any = {
-  mode: 'production',
-  devtool: 'cheap-source-map',
   output: {
     path: path.join(__dirname, '..', 'dist'),
     publicPath: '/',
@@ -110,7 +108,7 @@ const baseConfig: any = {
       title: 'React Typescript Boilerplate',
       filename: 'index.html',
       inject: true,
-      template: path.resolve(__dirname, '..', 'src/index.html'),
+      template: path.join(__dirname, '..', 'src/index.html'),
     }),
   ],
 };

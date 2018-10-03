@@ -8,16 +8,20 @@ import { merge } from './base';
 const prodConfig: any = merge({
   name: 'client',
   mode: 'production',
+  devtool: 'cheap-source-map',
   entry: {
     app: path.join(__dirname, '..', 'src/index.tsx'),
+  },
+  output: {
+    publicPath: '/',
   },
   plugins: [
     new webpack.DefinePlugin(globals('client')),
     new HtmlWebpackPlugin({
       title: 'React Typescript Boilerplate',
       filename: 'index.html',
-      inject: false,
-      template: path.resolve(__dirname, '..', 'src/index.html'),
+      inject: true,
+      template: path.join(__dirname, '..', 'src/index.html'),
       minify: {
         removeComments: true,
         collapseWhitespace: true,
