@@ -1,6 +1,7 @@
 import * as webpack from 'webpack';
 import * as path from 'path';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as  WorkboxPlugin from 'workbox-webpack-plugin';
 // import BundleAnalyzerPlugin from 'webpack-bundle-analyzer'.BundleAnalyzerPlugin;
 import globals from '../src/config/globals';
 import { merge } from './base';
@@ -34,6 +35,9 @@ const prodConfig: any = merge({
         minifyCSS: true,
         minifyURLs: true,
       },
+    }),
+    new WorkboxPlugin.GenerateSW({
+      swDest: 'sw.js',
     }),
     // new BundleAnalyzerPlugin(),
   ],
