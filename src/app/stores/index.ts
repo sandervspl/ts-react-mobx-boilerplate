@@ -5,9 +5,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import testStore from './Test';
 
 let browserHistory;
-if (__CLIENT__) {
-  browserHistory = createBrowserHistory();
-}
+browserHistory = createBrowserHistory();
 
 const routingStore = new RouterStore();
 
@@ -25,9 +23,7 @@ export const storeDirectory = {
 };
 
 let historySyncedStore = null;
-if (__CLIENT__) {
-  historySyncedStore = syncHistoryWithStore(browserHistory, routingStore);
-}
+historySyncedStore = syncHistoryWithStore(browserHistory, routingStore);
 
 export const history = historySyncedStore;
 
