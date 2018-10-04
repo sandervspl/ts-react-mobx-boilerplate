@@ -38,6 +38,10 @@ const prodConfig: any = merge({
     }),
     new WorkboxPlugin.GenerateSW({
       swDest: 'sw.js',
+      // publish a new service worker and have it update and control a web page
+      // as soon as possible, skipping the default service worker lifecycle.
+      skipWaiting: true,
+      clientsClaim: true,
     }),
     // new BundleAnalyzerPlugin(),
   ],
