@@ -15,6 +15,8 @@ $ npm run dev
 
 ## Features
 * [Universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) rendering
+* [TypeScript](https://github.com/Microsoft/TypeScript) for better documentation of the written code
+* [Async Type Checking](https://github.com/Realytics/fork-ts-checker-webpack-plugin) on development server for faster compile times
 * [React 16.3](https://github.com/facebook/react)
 * [MobX](https://github.com/mobxjs/mobx)
 * [React Router 4](https://github.com/rackt/react-router)
@@ -25,7 +27,6 @@ $ npm run dev
 * [Webpack Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware)
 * [TSLint](https://palantir.github.io/tslint/) to maintain a consistent code style
 * [Styled-Components](https://github.com/styled-components/styled-components/) for CSS-in-JS
-* [TypeScript](https://github.com/Microsoft/TypeScript) for better documentation of the written code
 * Refer to `package.json` for more details
 
 ## NPM Scripts
