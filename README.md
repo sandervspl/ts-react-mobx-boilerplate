@@ -20,7 +20,7 @@ $ npm run dev
 * [React 16.3](https://github.com/facebook/react)
 * [MobX](https://github.com/mobxjs/mobx)
 * [React Router 4](https://github.com/rackt/react-router)
-* [Express](http://expressjs.com)
+* [Express](http://expressjs.com) to server a compressed client
 * [Babel 7](http://babeljs.io) for the future of JavaScript
 * [Webpack 4](http://webpack.github.io) for bundling
 * [TSLint](https://palantir.github.io/tslint/) to maintain a consistent code style
