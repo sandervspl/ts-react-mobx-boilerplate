@@ -108,7 +108,7 @@ const baseConfig: any = {
       title: 'React Typescript Boilerplate',
       filename: 'index.html',
       inject: true,
-      template: path.join(__dirname, '..', 'src/index.html'),
+      template: path.join(__dirname, '..', 'src/server/index.html'),
     }),
   ],
 };

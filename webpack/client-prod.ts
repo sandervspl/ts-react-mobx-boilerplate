@@ -3,8 +3,8 @@ import * as path from 'path';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as  WorkboxPlugin from 'workbox-webpack-plugin';
 // import BundleAnalyzerPlugin from 'webpack-bundle-analyzer'.BundleAnalyzerPlugin;
-import globals from './globals';
 import { merge } from './base';
+import globals from './globals';
 
 const prodConfig: any = merge({
   name: 'client',
@@ -22,7 +22,7 @@ const prodConfig: any = merge({
       title: 'React Typescript Boilerplate',
       filename: 'index.html',
       inject: true,
-      template: path.join(__dirname, '..', 'src/index.html'),
+      template: path.join(__dirname, '..', 'src/server/index.html'),
       minify: {
         removeComments: true,
         collapseWhitespace: true,

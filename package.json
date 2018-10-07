@@ -1,6 +1,6 @@
 {
   "name": "ts-react-mobx-boilerplate",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A starter boilerplate to create comprehensive React apps with TypeScript, MobX abd styled-components.",
   "author": "sandervispoel <contact@sandervispoel.com>",
   "repository": {
@@ -9,9 +9,10 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=development node ./src/devServer.ts",
-    "build": "NODE_ENV=production run-p clean build:client",
+    "dev": "NODE_ENV=development webpack-dev-server --config ./webpack/client-dev.ts",
+    "build": "NODE_ENV=production run-p clean build:all",
     "build:client": "webpack --hide-modules --config webpack/client-prod.ts",
+    "build:all": "webpack --hide-modules --config webpack/webpack.config.prod.ts",
     "clean": "rimraf dist/",
     "lint": "eslint src/"
   },
@@ -84,7 +85,6 @@
     "webpack": "^4.5.0",
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-cli": "^2.0.14",
-    "webpack-dev-middleware": "^3.4.0",
     "webpack-dev-server": "^3.1.7",
     "webpack-hot-middleware": "^2.24.2",
     "webpack-merge": "^4.1.2",
