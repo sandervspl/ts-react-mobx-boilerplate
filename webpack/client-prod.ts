@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as  WorkboxPlugin from 'workbox-webpack-plugin';
 // import BundleAnalyzerPlugin from 'webpack-bundle-analyzer'.BundleAnalyzerPlugin;
-import globals from '../src/config/globals';
+import globals from './globals';
 import { merge } from './base';
 
 const prodConfig: any = merge({
@@ -17,7 +17,7 @@ const prodConfig: any = merge({
     publicPath: '/',
   },
   plugins: [
-    new webpack.DefinePlugin(globals('client')),
+    new webpack.DefinePlugin(globals()),
     new HtmlWebpackPlugin({
       title: 'React Typescript Boilerplate',
       filename: 'index.html',
@@ -40,7 +40,7 @@ const prodConfig: any = merge({
       swDest: 'sw.js',
     }),
     // new BundleAnalyzerPlugin(),
-  ],
+  ],  
 });
 
 module.exports = prodConfig;

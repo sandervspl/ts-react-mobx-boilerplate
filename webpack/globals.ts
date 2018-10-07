@@ -1,8 +1,8 @@
-import { port } from './index';
+import { port } from '../src/config';
 
 const env = process.env.NODE_ENV || 'development';
 
-export default (type: string) => ({
+module.exports = (type: string) => ({
   'process.env': {
     NODE_ENV: JSON.stringify(env),
     PORT: port,
@@ -11,6 +11,4 @@ export default (type: string) => ({
   __TEST__: env === 'test',
   __PROD__: env === 'production',
   __ACC__: env === 'acceptation',
-  __CLIENT__: type === 'client',
-  __SERVER__: type === 'server',
 });
