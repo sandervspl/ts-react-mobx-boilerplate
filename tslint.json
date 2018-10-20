@@ -15,6 +15,7 @@
     "jsx-alignment": true,
     "jsx-no-bind": true,
     "jsx-no-string-ref": true,
+    "jsx-no-multiline-js": false,
     "jsx-self-close": true,
     "jsx-wrap-multiline": true,
     "jsx-boolean-value": false,
