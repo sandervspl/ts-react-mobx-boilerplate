@@ -9,10 +9,10 @@ const {
 const {
   default: styled,
   css,
-  injectGlobal,
+  createGlobalStyle,
   keyframes,
   ThemeProvider,
 } = styledComponents as styledComponents.ThemedStyledComponentsModule<i.Theme>;
 
-export { css, injectGlobal, keyframes, ThemeProvider, ServerStyleSheet, StyleSheetManager };
+export { css, createGlobalStyle, keyframes, ThemeProvider, ServerStyleSheet, StyleSheetManager };
 export default styled;

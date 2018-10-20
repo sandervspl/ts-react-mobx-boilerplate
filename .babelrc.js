@@ -7,20 +7,6 @@ module.exports = {
   plugins: [
     'lodash',
     'babel-plugin-styled-components',
-    'react-hot-loader/babel',
     'react-loadable/babel',
   ],
-  env: {
-    production: {
-      plugins: [
-        [
-          'transform-react-remove-prop-types',
-          {
-            mode: 'remove',
-            removeImport: true,
-          },
-        ],
-      ],
-    },
-  },
 }

@@ -2,11 +2,11 @@ import * as path from 'path';
 import * as webpackMerge from 'webpack-merge';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 
-const srcPath = (p: string) => path.resolve(__dirname, '..', 'src/', p);
+const srcPath = (p: string) => path.resolve(__dirname, '../src/', p);
 
 const baseConfig: any = {
   output: {
-    path: path.join(__dirname, '..', 'dist'),
+    path: path.join(__dirname, '../dist'),
     publicPath: '/',
   },
   optimization: {
@@ -41,15 +41,11 @@ const baseConfig: any = {
         test: /\.svg$/,
         oneOf: [
           {
-            resource: /external/,
-            loader: 'url-loader',
-            query: {
-              limit: 10000,
-              name: 'static/[name].[ext]',
-            },
+            resourceQuery: /external/,
+            loader: 'url-loader?limit=10000',
           },
           {
-            loader: ['babel-loader', { loader: 'svg-react-loader' }],
+            loader: '@svgr/webpack',
           },
         ],
       },
@@ -72,7 +68,7 @@ const baseConfig: any = {
       },
       {
         exclude: [
-          /\.js$/,
+          /\.jsx?$/,
           /\.tsx?$/,
           /\.css$/,
           /\.svg$/,
@@ -90,25 +86,43 @@ const baseConfig: any = {
     alias: {
       app: srcPath('app'),
       common: srcPath('app/components/common'),
+      '@common': srcPath('app/components/common/index'),
       components: srcPath('app/components'),
       config: srcPath('config'),
+      '@config': srcPath('config/index'),
+      ducks: srcPath('app/ducks'),
       fonts: srcPath('app/static/fonts'),
       images: srcPath('app/static/images'),
       modules: srcPath('app/components/modules'),
+      '@modules': srcPath('app/components/modules/index'),
       server: srcPath('server'),
       services: srcPath('app/services'),
+      '@services': srcPath('app/services/index'),
       stores: srcPath('app/stores'),
       styles: srcPath('app/styles'),
+      '@types': srcPath('app/types/index'),
       vectors: srcPath('app/static/vectors'),
       'styled-components': srcPath('app/services/styled-components.ts'),
     },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'React Typescript Boilerplate',
+      title: 'ts react mobx',
       filename: 'index.html',
       inject: true,
-      template: path.join(__dirname, '..', 'src/server/index.html'),
+      template: path.join(__dirname, '../src/index.html'),
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      },
     }),
   ],
 };
