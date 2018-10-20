@@ -1,18 +1,11 @@
 {
-  "defaultSeverity": "error",
   "extends": [
     "tslint-config-airbnb",
-    "tslint-react",
-    "tslint-config-prettier"
+    "tslint-react"
   ],
   "plugins": [
-    "react",
-    "typescript"
+    "react"
   ],
-  "env": {
-    "browser": true,
-    "node": true
-  },
   "rules": {
     "react/require-default-props": 0,
     "react/no-children-prop": 0,
@@ -78,6 +71,18 @@
     "quotemark": [true, "single", "avoid-escape", "jsx-double"],
     "no-shadowed-variable": false,
     "semicolon": [true, "always", "ignore-interfaces"],
-    "array-type": [true, "array"]
+    "array-type": [true, "array"],
+    "whitespace": [true, 
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-rest-spread",
+      "check-type",
+      "check-typecast",
+      "check-type-operator",
+      "check-preblock"
+    ]
   }
 }
