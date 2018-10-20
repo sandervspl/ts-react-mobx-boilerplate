@@ -1,6 +1,7 @@
 import * as path from 'path';
 import * as webpackMerge from 'webpack-merge';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
 const srcPath = (p: string) => path.resolve(__dirname, '../src/', p);
 
@@ -103,6 +104,9 @@ const baseConfig: any = {
       vectors: srcPath('app/static/vectors'),
       'styled-components': srcPath('app/services/styled-components.ts'),
     },
+    plugins: [
+      new TsconfigPathsPlugin(),
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
