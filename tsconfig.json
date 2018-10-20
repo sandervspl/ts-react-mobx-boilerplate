@@ -18,7 +18,6 @@
       "components/*": ["app/components/*"],
       "config/*": ["config/*"],
       "@config": ["config/index"],
-      "ducks/*": ["app/ducks/*"],
       "fonts/*": ["app/static/fonts/*"],
       "images/*": ["app/static/images/*"],
       "modules/*": ["app/components/modules/*"],

@@ -90,7 +90,6 @@ const baseConfig: any = {
       components: srcPath('app/components'),
       config: srcPath('config'),
       '@config': srcPath('config/index'),
-      ducks: srcPath('app/ducks'),
       fonts: srcPath('app/static/fonts'),
       images: srcPath('app/static/images'),
       modules: srcPath('app/components/modules'),
