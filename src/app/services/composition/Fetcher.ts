@@ -1,7 +1,7 @@
-import * as i from 'app/types';
+import * as i from '@types';
 import { action, computed, observable } from 'mobx';
 import * as qs from 'qs';
-import * as s from 'app/services';
+import { localStorageHelper } from '@services';
 import apiConfig from 'config/api';
 
 export class Fetcher implements i.Fetcher {
@@ -76,28 +76,26 @@ export class Fetcher implements i.Fetcher {
   private request = async ({ path, options, handle401 }: i.RequestOptions): Promise<any> => {
     return new Promise((resolve, reject) => {
       fetch(path, options)
-        .then(response => {
+        .then((response) => {
           const unauthorized = response.status === 401 || response.status === 403;
 
           if (unauthorized && handle401) {
-            s.localStorage.jwToken.clear();
+            localStorageHelper.jwToken.clear();
           }
 
           // FOR DELETE CALLS WHEN BACK-END DOESN'T RETURN ANYTHING
           if (response.status === 204) return;
 
           if (response.ok) {
-            // const token = response.headers.get('JWT-Token');
-            // if (token) window.localStorage.setItem('JWTTOKEN', token);
             return response.json();
           }
 
           return reject({ status: response.status, statusText: response.statusText });
         })
-        .then(json => {
+        .then((json) => {
           resolve(json);
         })
-        .catch(error => {
+        .catch((error) => {
           reject(error);
         });
     });

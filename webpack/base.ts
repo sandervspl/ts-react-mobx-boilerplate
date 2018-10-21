@@ -7,6 +7,8 @@ const srcPath = (p: string) => path.resolve(__dirname, '../src/', p);
 
 const baseConfig: any = {
   output: {
+    filename: '[name].[hash].js',
+    chunkFilename: '[name].js',
     path: path.join(__dirname, '../dist'),
     publicPath: '/',
   },
@@ -16,7 +18,7 @@ const baseConfig: any = {
         commons: {
           name: 'vendors',
           test: /node_modules/,
-          chunks: 'initial',
+          chunks: 'all',
         },
       },
       // Files will invalidate i. e. when more chunks with the same vendors are added.

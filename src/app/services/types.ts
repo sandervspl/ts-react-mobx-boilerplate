@@ -13,7 +13,7 @@ export interface JWTokenService {
   clear: () => void;
 }
 
-export interface LocalStorage {
+export interface LocalStorageHelper {
   jwToken: JWTokenService;
 }
 

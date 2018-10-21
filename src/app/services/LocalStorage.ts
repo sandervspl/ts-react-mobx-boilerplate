@@ -1,4 +1,4 @@
-import * as i from 'app/types';
+import * as i from '@types';
 
 class jwToken implements i.JWTokenService {
   get = (): string | null => {
@@ -14,10 +14,8 @@ class jwToken implements i.JWTokenService {
   }
 }
 
-class LocalStorage implements i.LocalStorage {
+class LocalStorageHelper implements i.LocalStorageHelper {
   jwToken = new jwToken();
 }
 
-const ls = new LocalStorage();
-
-export default ls;
+export const localStorageHelper = new LocalStorageHelper();

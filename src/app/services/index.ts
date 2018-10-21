@@ -1,1 +1,2 @@
-export { default as localStorage } from './LocalStorage';
+export { localStorageHelper } from './LocalStorage';
+export { preloadComponent } from './preloadComponent';

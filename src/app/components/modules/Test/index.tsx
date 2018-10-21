@@ -1,4 +1,4 @@
-import * as i from 'app/types';
+import * as i from '@types';
 import * as React from 'react';
 import { Button } from 'components/common';
 import { LogoIconWrapper, Section, TestPassed } from './components';

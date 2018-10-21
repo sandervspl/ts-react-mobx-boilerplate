@@ -1,4 +1,4 @@
-import * as i from 'app/types';
+import * as i from '@types';
 import { observable, action } from 'mobx';
 import * as c from 'app/services/composition';
 

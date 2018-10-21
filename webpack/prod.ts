@@ -1,6 +1,7 @@
 import * as webpack from 'webpack';
 import * as path from 'path';
 import * as nodeExternals from 'webpack-node-externals';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import globals from './globals';
 import { merge } from './base';
 
@@ -14,7 +15,7 @@ const prodConfig: webpack.Configuration = merge({
     ],
   },
   plugins: [
-    new webpack.DefinePlugin(globals()),
+    new webpack.DefinePlugin(globals('client')),
   ],
 });
 
@@ -30,6 +31,15 @@ const serverConfig: webpack.Configuration = {
   },
   externals: [
     nodeExternals({ whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/ }),
+  ],
+  resolve: {
+    extensions: ['*', '.js', '.ts', '.tsx'],
+    plugins: [
+      new TsconfigPathsPlugin(),
+    ],
+  },
+  plugins: [
+    new webpack.DefinePlugin(globals('server')),
   ],
 };
 

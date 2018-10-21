@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as Loadable from 'react-loadable';
+import { LoadableComponent } from '@common';
 
-const Loading = () => <div>Loading...</div>;
-
+/* tslint:disable space-in-parens */
 export const Test = Loadable({
-  loader: () => import('./Test'),
-  loading: Loading,
+  loader: () => import(/* webpackChunkName: "Test" */ './Test'),
+  loading: LoadableComponent,
 });
+/* tslint:enable */
