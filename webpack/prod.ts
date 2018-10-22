@@ -2,8 +2,11 @@ import * as webpack from 'webpack';
 import * as path from 'path';
 import * as nodeExternals from 'webpack-node-externals';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import * as workbox from 'workbox-webpack-plugin';
+import * as WebpackPwaManifest from 'webpack-pwa-manifest';
 import globals from './globals';
 import { merge } from './base';
+import config from './config';
 
 const prodConfig: webpack.Configuration = merge({
   name: 'client',
@@ -16,6 +19,29 @@ const prodConfig: webpack.Configuration = merge({
   },
   plugins: [
     new webpack.DefinePlugin(globals('client')),
+    new WebpackPwaManifest({
+      name: config.appName,
+      short_name: config.shortName,
+      orientation: 'portrait',
+      display: 'standalone',
+      background_color: '#FFFFFF',
+      theme_color: '#FFFFFF',
+      start_url: '/',
+      scope: '/',
+      ios: true,
+      // icons: [{
+      //   src: path.resolve(__dirname, '../src/app/static/images/icon.png'),
+      //   sizes: [96, 128, 192, 256, 512],
+      //   destination: path.join('icons'),
+      //   ios: true,
+      // }],
+    }),
+    new workbox.GenerateSW({
+      cacheId: 'ts-react-mobx-boilerplate',
+      swDest: 'sw.js',
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
   ],
 });
 

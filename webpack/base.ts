@@ -2,6 +2,7 @@ import * as path from 'path';
 import * as webpackMerge from 'webpack-merge';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import config from './config';
 
 const srcPath = (p: string) => path.resolve(__dirname, '../src/', p);
 
@@ -92,7 +93,7 @@ const baseConfig: any = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'ts react mobx',
+      title: config.appName,
       filename: 'index.html',
       inject: true,
       template: path.join(__dirname, '../src/index.html'),
