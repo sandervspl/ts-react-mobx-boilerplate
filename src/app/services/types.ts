@@ -12,11 +12,3 @@ export interface JWTokenService {
   set: (data: any) => void;
   clear: () => void;
 }
-
-export interface LocalStorageHelper {
-  jwToken: JWTokenService;
-}
-
-export enum LOCAL_STORAGE_KEYS {
-  'jwToken' = 'JW_TOKEN',
-}
