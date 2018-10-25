@@ -80,7 +80,7 @@ export class Fetcher implements i.Fetcher {
           const unauthorized = response.status === 401 || response.status === 403;
 
           if (unauthorized && handle401) {
-            localStorageHelper.jwToken.clear();
+            localStorageHelper.jwtoken.clear();
           }
 
           // FOR DELETE CALLS WHEN BACK-END DOESN'T RETURN ANYTHING
