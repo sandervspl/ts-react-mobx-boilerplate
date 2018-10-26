@@ -4,12 +4,10 @@ import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import config from './config';
 
-const srcPath = (p: string) => path.resolve(__dirname, '../src/', p);
-
 const baseConfig: any = {
   output: {
     filename: '[name].[hash].js',
-    chunkFilename: '[name].js',
+    chunkFilename: '[name].[hash].js',
     path: path.join(__dirname, '../dist'),
     publicPath: '/',
   },
@@ -17,8 +15,8 @@ const baseConfig: any = {
     splitChunks: {
       cacheGroups: {
         commons: {
-          name: 'vendors',
-          test: /node_modules/,
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
           chunks: 'all',
         },
       },
@@ -34,12 +32,7 @@ const baseConfig: any = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: [{
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true,
-          },
-        }],
+        loader: 'babel-loader',
       },
       {
         test: /\.svg$/,

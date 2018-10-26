@@ -2,16 +2,21 @@ import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import { withRouter, RouteComponentProps } from 'react-router';
-import { Test } from './modules';
+import { Logo } from '@common';
+import { Test, RouteTest } from '@modules';
 
 @observer
-class App extends React.Component<AppProps> {
+class App extends React.PureComponent<AppProps> {
   render() {
     return (
       <main>
-        <Switch>
-          <Route exact path="/" component={Test} />
-        </Switch>
+        <Logo />
+        <React.Suspense fallback={<div>loading...</div>}>
+          <Switch>
+            <Route exact path="/" component={Test} />
+            <Route exact path="/routetest" component={RouteTest} />
+          </Switch>
+        </React.Suspense>
       </main>
     );
   }
