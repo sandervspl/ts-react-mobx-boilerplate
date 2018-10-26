@@ -1,5 +1,6 @@
 import * as i from '@types';
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from 'components/common';
 import { LogoIconWrapper, Section, TestPassed } from './components';
 import { inject, observer } from 'mobx-react';
@@ -21,6 +22,7 @@ class Test extends React.Component<HomeProps, {}> {
             {isLoading ? 'Installing...' : 'Test installation'}
           </Button>
         )}
+        <Link to="/routetest">Test routing</Link>
       </Section>
     );
   }
