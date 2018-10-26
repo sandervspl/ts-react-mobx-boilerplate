@@ -2,11 +2,11 @@
 
 ## Getting Started
 ```
-$ git clone https://github.com/sandervspl/ts-react-mobx.git
+$ git clone https://github.com/sandervspl/ts-react-mobx-boilerplate.git
 ```
 
 ```
-$ cd ts-react-mobx && npm i
+$ cd ts-react-mobx-boilerplate && npm i
 ```
 
 ```
@@ -15,9 +15,9 @@ $ npm run dev
 
 ## Features
 * [Universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) rendering
-* [TypeScript](https://github.com/Microsoft/TypeScript) for better documentation of the written code
+* [TypeScript 3](https://github.com/Microsoft/TypeScript) for better documentation of the written code
 * [Async Type Checking](https://github.com/Realytics/fork-ts-checker-webpack-plugin) on development server for faster compile times
-* [React 16.3](https://github.com/facebook/react)
+* [React 16.6](https://github.com/facebook/react)
 * [MobX](https://github.com/mobxjs/mobx)
 * [React Router 4](https://github.com/rackt/react-router)
 * [Express](http://expressjs.com) to server a compressed client
@@ -59,13 +59,15 @@ This boilerplate uses the MobX for its state management.
 
 ## Styling
 ### Local styles
-This project uses CSS-in-JS styling with [Styled-Components](https://github.com/styled-components/styled-components/).
+This project uses CSS-in-JS styling with [Styled-Components](https://github.com/styled-components/styled-components/). In order to use Typescript with Styled-Components, this boilerplate uses an augmented version of Styled-Components, which adds the Theme types to the ThemeProvider. To use this version, you have to import from `'@styled-components'` instead of the usual `'styled-components'` path.
 
 ### Global styles
 You can configure the styled-components theme in the `styles` folder. In this folder you can also specify all the variables. When styling a components, grab the `theme` from the styled-component's props.
 
 Example:
 ```
+import styled from '@styled-components';
+
 const Button = styled.button`
     background-color: ${props => props.theme.color.white};
 `
