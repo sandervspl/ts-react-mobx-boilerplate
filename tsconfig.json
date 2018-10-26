@@ -31,7 +31,7 @@
       "styles/*": ["app/styles/*"],
       "@types": ["types/index"],
       "vectors/*": ["app/static/vectors/*"],
-      "styled-components": ["app/services/styled-components.ts"]
+      "@styled-components": ["app/services/styled-components.ts"]
     },
     "typeRoots": ["node_modules/@types"],
     "lib": ["dom", "es6"]

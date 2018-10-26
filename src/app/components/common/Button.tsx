@@ -1,6 +1,6 @@
 import * as i from '@types';
 import { ButtonHTMLAttributes } from 'react';
-import styled from 'styled-components';
+import styled from '@styled-components';
 
 export const Button = styled.button<ButtonProps>`
     background: ${props => props.theme.color.primary};
