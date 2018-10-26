@@ -25,5 +25,4 @@ class App extends Component<AppProps> {
 
 export interface AppProps extends RouteComponentProps {}
 
-// withRouter is necessary for App to re-render on route change (MobX's fault)
 export default withRouter(App);
