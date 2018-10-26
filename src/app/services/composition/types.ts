@@ -5,7 +5,6 @@ export interface Fetcher extends ApiHelper {
   setLoading: () => void;
   setSuccess: () => void;
   setFailed: (err: any) => void;
-  apiUri: string;
 }
 
 export interface RequestOptions {

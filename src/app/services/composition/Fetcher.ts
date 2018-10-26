@@ -1,13 +1,14 @@
 import * as i from '@types';
 import { action, computed, observable } from 'mobx';
 import * as qs from 'qs';
+import { api } from '@config';
 import { localStorageHelper } from '@services';
-import apiConfig from 'config/api';
 
 export class Fetcher implements i.Fetcher {
+  @observable public error: string = '';
   @observable private loading: boolean = false;
   @observable private loaded: boolean = false;
-  @observable private error: boolean = false;
+  @observable private failed: boolean = false;
 
   // Implementations can retrieve load states only with these functions.
   // Changing load state can only be done with setX actions.
@@ -23,54 +24,50 @@ export class Fetcher implements i.Fetcher {
 
   @computed
   public get hasFailed(): boolean {
-    return this.error;
+    return this.failed;
   }
 
   @action
   public setLoading = () => {
     this.loading = true;
     this.loaded = false;
-    this.error = false;
+    this.failed = false;
+    this.error = '';
   }
 
   @action
   public setSuccess = () => {
     this.loading = false;
     this.loaded = true;
-    this.error = false;
+    this.failed = false;
+    this.error = '';
   }
 
   @action
-  public setFailed = (err: any) => {
+  public setFailed = (err: string) => {
     this.loading = false;
     this.loaded = false;
-    this.error = true;
+    this.failed = true;
+    this.error = err;
 
     // tslint:disable-next-line no-console
-    console.log(err);
+    console.error(err);
   }
 
-  public get apiUri(): string {
-    const env = process.env.NODE_ENV || 'development';
-    return {
-      production: apiConfig.production,
-      development: apiConfig.development,
-    }[env];
-  }
 
-  get = ({ path, query, withAuth }: i.GenerateOptions) =>
+  get = <T = {}>({ path, query, withAuth }: i.GenerateOptions): Promise<T> =>
     this.request(this.generateOptions({ method: 'GET', path, query, withAuth }))
 
-  del = ({ path, query, withAuth }: i.GenerateOptions) =>
+  del = <T = {}>({ path, query, withAuth }: i.GenerateOptions): Promise<T> =>
     this.request(this.generateOptions({ method: 'DELETE', path, query, withAuth }))
 
-  post = ({ path, body, withAuth }: i.GenerateOptions) =>
+  post = <T = {}>({ path, body, withAuth }: i.GenerateOptions): Promise<T> =>
     this.request(this.generateOptions({ method: 'POST', path, body, withAuth }))
 
-  put = ({ path, body, withAuth }: i.GenerateOptions) =>
+  put = <T = {}>({ path, body, withAuth }: i.GenerateOptions): Promise<T> =>
     this.request(this.generateOptions({ method: 'PUT', path, body, withAuth }))
 
-  patch = ({ path, body, withAuth }: i.GenerateOptions) =>
+  patch = <T = {}>({ path, body, withAuth }: i.GenerateOptions): Promise<T> =>
     this.request(this.generateOptions({ method: 'PATCH', path, body, withAuth }))
 
   private request = async ({ path, options, handle401 }: i.RequestOptions): Promise<any> => {
@@ -105,7 +102,7 @@ export class Fetcher implements i.Fetcher {
     const { method, path, withAuth = false, query, body } = options;
 
     return {
-      path: `${this.apiUri}${path}${query ? '?' : ''}${qs.stringify(query || {})}`,
+      path: `${api}${path}${query ? '?' : ''}${qs.stringify(query || {})}`,
       options: {
         headers: {
           'Content-Type': 'application/json',
