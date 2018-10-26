@@ -1,4 +1,5 @@
-import * as React from 'react';
+// @ts-ignore
+import React, { Component, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import { withRouter, RouteComponentProps } from 'react-router';
@@ -6,17 +7,17 @@ import { Logo } from '@common';
 import { Test, RouteTest } from '@modules';
 
 @observer
-class App extends React.PureComponent<AppProps> {
+class App extends Component<AppProps> {
   render() {
     return (
       <main>
         <Logo />
-        <React.Suspense fallback={<div>loading...</div>}>
+        <Suspense fallback={<div>loading...</div>}>
           <Switch>
             <Route exact path="/" component={Test} />
             <Route exact path="/routetest" component={RouteTest} />
           </Switch>
-        </React.Suspense>
+        </Suspense>
       </main>
     );
   }

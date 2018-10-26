@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import * as confettiImg from 'images/confetti.png';
 
 import { Message, Confetti } from './styled';
 
-const TestPassed: React.StatelessComponent = () => (
+const TestPassed = () => (
   <div>
     <Message>
       The boilerplate is successfully installed, you&apos;re ready to start.
