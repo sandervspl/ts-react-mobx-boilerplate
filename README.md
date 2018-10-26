@@ -61,7 +61,6 @@ This boilerplate uses the MobX for its state management.
 ### Local styles
 This project uses CSS-in-JS styling with [Styled-Components](https://github.com/styled-components/styled-components/). In order to use Typescript with Styled-Components, this boilerplate uses an augmented version of Styled-Components, which adds the Theme types to the ThemeProvider. To use this version, you have to import from `'@styled-components'` instead of the usual `'styled-components'` path.
 
-### Global styles
 You can configure the styled-components theme in the `styles` folder. In this folder you can also specify all the variables. When styling a components, grab the `theme` from the styled-component's props.
 
 Example:
