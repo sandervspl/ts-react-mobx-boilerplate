@@ -1,10 +1,11 @@
-import * as path from 'path';
-import * as webpackMerge from 'webpack-merge';
-import * as HtmlWebpackPlugin from 'html-webpack-plugin';
-import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+const path = require('path');
+const webpackMerge = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+import * as webpack from 'webpack';
 import config from './config';
 
-const baseConfig: any = {
+const baseConfig: webpack.Configuration = {
   output: {
     filename: '[name].[hash].js',
     chunkFilename: '[name].[hash].js',

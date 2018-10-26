@@ -1,5 +1,5 @@
 import React from 'react';
-import * as confettiImg from 'images/confetti.png';
+import confettiImg from 'images/confetti.png';
 
 import { Message, Confetti } from './styled';
 
