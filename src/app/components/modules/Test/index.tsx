@@ -1,10 +1,10 @@
 import * as i from '@types';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'components/common';
-import { LogoIconWrapper, Section, TestPassed } from './components';
 import { inject, observer } from 'mobx-react';
 import Stores from 'app/stores';
+import { Button, Page } from '@common';
+import { TestPassed } from './components';
 
 @inject(Stores.testStore)
 @observer
@@ -13,8 +13,7 @@ class Test extends React.Component<HomeProps, {}> {
     const { passed, install, fetcher: { isLoading } } = this.props.testStore;
 
     return (
-      <Section>
-        <LogoIconWrapper />
+      <Page>
         {passed ? (
           <TestPassed />
         ) : (
@@ -22,8 +21,8 @@ class Test extends React.Component<HomeProps, {}> {
             {isLoading ? 'Installing...' : 'Test installation'}
           </Button>
         )}
-        <Link to="/routetest">Test routing</Link>
-      </Section>
+        <p><Link to="/routetest">Test routing</Link></p>
+      </Page>
     );
   }
 }

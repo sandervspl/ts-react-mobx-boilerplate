@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { Page } from '@common';
 
 class RouteTest extends React.Component {
   render() {
     return (
-      <div>
+      <Page>
         Route Tested!
-        <Link to="/">Back to home</Link>
-      </div>
+        <p><Link to="/">Back to home</Link></p>
+      </Page>
     );
   }
 }
