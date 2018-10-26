@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Page } from '@common';
 
-class RouteTest extends React.Component {
+class RouteTest extends Component {
   render() {
     return (
       <Page>

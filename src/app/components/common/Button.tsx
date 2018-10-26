@@ -1,6 +1,6 @@
 import * as i from '@types';
-import * as React from 'react';
-import styled from 'styled-components';
+import { ButtonHTMLAttributes } from 'react';
+import styled from '@styled-components';
 
 export const Button = styled.button<ButtonProps>`
     background: ${props => props.theme.color.primary};
@@ -15,4 +15,4 @@ export const Button = styled.button<ButtonProps>`
 `;
 
 // PropTypes as interface
-export interface ButtonProps extends i.BaseStyled, React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface ButtonProps extends i.BaseStyled, ButtonHTMLAttributes<HTMLButtonElement> {}

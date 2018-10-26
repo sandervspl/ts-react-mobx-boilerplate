@@ -1,5 +1,5 @@
 import * as i from '@types';
-import * as React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 import Stores from 'app/stores';
@@ -8,7 +8,7 @@ import { TestPassed } from './components';
 
 @inject(Stores.testStore)
 @observer
-class Test extends React.Component<HomeProps, {}> {
+class Test extends Component<HomeProps, {}> {
   render() {
     const { passed, install, fetcher: { isLoading } } = this.props.testStore;
 
