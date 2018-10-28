@@ -1,8 +1,8 @@
-export { History } from 'history';
-export { RouterStore } from 'mobx-react-router';
 import { RouteComponentProps as IRouteComponentProps } from 'react-router-dom';
 
-export * from 'services/types';
+export { History } from 'history';
+export { RouterStore } from 'mobx-react-router';
+
 export * from 'services/composition/types';
 export * from 'services/localStorage/types';
 
