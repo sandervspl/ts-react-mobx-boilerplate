@@ -30,9 +30,8 @@ $ npm run dev
 ## NPM Scripts
 * Start develop server: `$ npm run dev`
 * Build client: `$ npm run build`
+* Start server: `$npm run start`
 * Remove build folder: `$ npm run clean`
-
-**Automated for production with [npm-run-all](https://github.com/mysticatea/npm-run-all).**
 
 ## Deployment
 Make sure all modules are installed:
@@ -40,10 +39,17 @@ Make sure all modules are installed:
 $ npm i
 ```
 
-Create a build for production, this will add a `/dist` folder to the root with all bundles.
+Create a build for production. This will add a `/dist` folder to the root with all bundles.
 ```
 $ npm run build
 ```
+
+Starting the server
+```
+$ npm run start
+```
+
+**Note:** It is recommended to run the server with [PM2](http://pm2.keymetrics.io/).
 
 ## Development Workflow
 ### Components
