@@ -64,7 +64,7 @@ This project uses CSS-in-JS styling with [Styled-Components](https://github.com/
 You can configure the styled-components theme in the `styles` folder. In this folder you can also specify all the variables. When styling a components, grab the `theme` from the styled-component's props.
 
 Example:
-```
+```ts
 import styled from '@styled-components';
 
 const Button = styled.button`
