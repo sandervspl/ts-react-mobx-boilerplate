@@ -16,7 +16,7 @@ $ npm run dev
 ## Features
 * [Universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) rendering
 * [TypeScript 3](https://github.com/Microsoft/TypeScript) for better documentation of the written code
-* [Async Type Checking](https://github.com/Realytics/fork-ts-checker-webpack-plugin) on development server for faster compile times
+* [Async Type Checking](https://github.com/Realytics/fork-ts-checker-webpack-plugin) on development server for faster reloading
 * [React 16.6](https://github.com/facebook/react)
 * [MobX](https://github.com/mobxjs/mobx)
 * [React Router 4](https://github.com/rackt/react-router)
@@ -59,9 +59,9 @@ This boilerplate uses the MobX for its state management.
 
 ## Styling
 ### Local styles
-This project uses CSS-in-JS styling with [Styled-Components](https://github.com/styled-components/styled-components/). In order to use Typescript with Styled-Components, this boilerplate uses an augmented version of Styled-Components, which adds the Theme types to the ThemeProvider. To use this version, you have to import from `'@styled-components'` instead of the usual `'styled-components'` path.
+This project uses CSS-in-JS styling with [Styled-Components](https://github.com/styled-components/styled-components/). In order to use Typescript with Styled-Components, this boilerplate uses an augmented version of Styled-Components which adds the Theme types to the ThemeProvider. To use this you have to import Styled-Components from `'@styled-components'` instead of the usual `'styled-components'` path.
 
-You can configure the styled-components theme in the `styles` folder. In this folder you can also specify all the variables. When styling a components, grab the `theme` from the styled-component's props.
+You can configure the Styled-Components theme in the `styles` folder. In this folder you can also specify all the variables. When styling a components, grab the `theme` from the Styled-Component's props.
 
 Example:
 ```ts
