@@ -1,6 +1,9 @@
 # React boilerplate
 
 ## Getting Started
+To quickly install the boilerplate you can run `npx create-sandervspl web-mobx <folder name>`.
+
+Manually:
 ```
 $ git clone https://github.com/sandervspl/ts-react-mobx-boilerplate.git
 ```
